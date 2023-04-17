@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+// App.tsx
+import React from 'react';
+import Map from './components/Map.tsx';
+import { useJsApiLoader } from "@react-google-maps/api";
 
 function App() {
+  const { isLoaded } = useJsApiLoader({
+    id: "AIzaSyCg1y7Kj5GKPlzcf2Hwo_S0LzNdMcP_Pxo",
+    googleMapsApiKey: "AIzaSyCg1y7Kj5GKPlzcf2Hwo_S0LzNdMcP_Pxo",
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Organ Procurement Organizations Map</h1>
+      <Map isLoaded={isLoaded} />
     </div>
   );
 }
